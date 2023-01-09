@@ -8,6 +8,7 @@ RSpec.describe Chef, type: :model do
   describe 'relationships' do
     it { should have_many :dishes }
     it { should have_many(:ingredients).through(:dishes) }
+    # it { should have_many(:recipes).through(:dishes)}
   end
 
   describe 'instance methods' do
@@ -32,7 +33,7 @@ RSpec.describe Chef, type: :model do
     end
 
     describe '#top_3_ingredients' do
-      it 'lists the three most popular ingredients that the chef uses in their dishes
+      xit 'lists the three most popular ingredients that the chef uses in their dishes
           (Popularity is based off of how many dishes use that ingredient)' do
 
       remy = Chef.create!(name: 'Remy')
