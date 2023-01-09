@@ -20,12 +20,13 @@ RSpec.describe Chef, type: :model do
         Recipe.create!(ingredient_id: zucchini.id, dish_id: ratatouille.id)
         Recipe.create!(ingredient_id: evoo.id, dish_id: ratatouille.id)
         tapenade = remy.dishes.create!(name: 'Tapenade', description: 'Olive dish')
-        evoo = Ingredient.create!(name: 'Extra Virgin Olive Oil', calories: 300)
         olives = Ingredient.create!(name: 'Olives', calories: 40)
         Recipe.create!(ingredient_id: evoo.id, dish_id: tapenade.id)
         Recipe.create!(ingredient_id: olives.id, dish_id: tapenade.id)
 
+        expect(remy.ingredients.count).to eq(5)
         expect(remy.ingredient_list.count).to eq(4)
+        
       end
     end
   end
