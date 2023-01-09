@@ -25,12 +25,6 @@ RSpec.describe 'Chef show page' do
     expect(page).to have_content('Croissant')
   end
 
-#   As a visitor
-# When I visit a chef's show page
-# I see a link to view a list of all ingredients that this chef uses in their dishes.
-# When I click on that link
-# I'm taken to a chef's ingredients index page
-# and I can see a unique list of names of all the ingredients that this chef uses.
   it 'link to chef ingredient index' do
     remy = Chef.create!(name: 'Remy') 
     visit chef_path(remy)
@@ -39,4 +33,9 @@ RSpec.describe 'Chef show page' do
 
     expect(current_path).to eq(chef_ingredient_index_path(remy))
   end
+#   As a visitor
+# When I visit a chef's show page
+# I see the three most popular ingredients that the chef uses in their dishes
+# (Popularity is based off of how many dishes use that ingredient)
+  
 end
