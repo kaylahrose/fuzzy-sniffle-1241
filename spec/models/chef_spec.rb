@@ -6,5 +6,6 @@ RSpec.describe Chef, type: :model do
   end
   describe "relationships" do
     it {should have_many :dishes}
+    it {should have_many(:ingredients).through(:dishes)}
   end
 end
