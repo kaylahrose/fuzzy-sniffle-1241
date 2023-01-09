@@ -1,0 +1,15 @@
+<h1>Chef <%= @chef.name %></h1>
+<h3>Dishes: </h3>
+<% @chef.dishes.each do |dish| %>
+  <%= dish.name %>
+<% end %>
+
+<%= form_with url: "/chef/#{@chef.id}/dish", method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name%>
+
+  <%= f.label :description %>
+  <%= f.text_field :description%>
+
+  <%= f.submit 'Create Dish' %>
+<% end %>

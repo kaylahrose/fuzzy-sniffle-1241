@@ -15,6 +15,8 @@ RSpec.describe 'Chef show page' do
     remy = Chef.create!(name: 'Remy')
     ratatouille = remy.dishes.create!(name: 'Ratatouille', description: 'Stewed summer vegetables')
 
+    visit chef_path(remy)
+    
     fill_in 'Name', with: 'Croissant'
     fill_in 'Description', with: 'flaky butter pastry with layers'
     click_button 'Create Dish'
