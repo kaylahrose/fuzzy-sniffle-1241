@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :dish, only: [:show]
   resources :chef, only: [:show] do
     resources :dish, only: [:create]
+    resources :ingredient, only: [:index], controller: "chef_ingredients"
   end
 end

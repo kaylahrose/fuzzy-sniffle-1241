@@ -37,6 +37,6 @@ RSpec.describe 'Chef show page' do
 
     click_link "View ingredients list"
 
-    expect(current_path).to eq(chef_ingredients_path(remy))
+    expect(current_path).to eq(chef_ingredient_index_path(remy))
   end
 end
